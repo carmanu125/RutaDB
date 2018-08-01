@@ -1,0 +1,93 @@
+INSERT INTO [dbo].[Places]
+           ([Name]
+           ,[Short_Description]
+           ,[Description]
+           ,[Address]
+           ,[Phone]
+           ,[Email]
+           ,[LatLong]
+           ,[Ranking]
+           ,[Url_image]
+           ,[Facebook]
+           ,[Instagram]
+           ,[Twitter]
+           ,[Url_logo])
+     VALUES
+           ('Asocalan'
+           ,'Venta Presencial'
+           ,'Femenino, masculino'
+           ,'Cll 5 # 5-18'
+           ,'3116380972'
+           ,'asociaciondecaladoybordado@hotmail.com'
+           ,'4.749580,-75.906721'
+           ,'3'
+           ,''
+           ,''
+           ,''
+           ,''
+           ,'');
+           
+           USE [ejemplo]
+GO
+/****** Object:  Table [dbo].[Devices]    Script Date: 1/08/2018 3:19:34 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Devices](
+	[id_Device] [int] IDENTITY(1,1) NOT NULL,
+	[Imei] [varchar](50) NULL,
+	[Device] [varchar](100) NULL,
+	[Hardware] [varchar](100) NULL,
+	[Model] [varchar](100) NULL,
+	[Brand] [varchar](100) NULL,
+	[Serial] [varchar](150) NULL,
+	[User_phone] [varchar](100) NULL,
+	[Version_sdk] [varchar](100) NULL,
+ CONSTRAINT [PK_Devices] PRIMARY KEY CLUSTERED 
+(
+	[id_Device] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Discount_Places]    Script Date: 1/08/2018 3:19:34 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Discount_Places](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Id_Place] [int] NULL,
+	[Id_Device] [int] NULL,
+ CONSTRAINT [PK_Discount_Places] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Places]    Script Date: 1/08/2018 3:19:35 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Places](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](200) NULL,
+	[Short_Description] [varchar](150) NULL,
+	[Description] [varchar](max) NULL,
+	[Address] [varchar](200) NULL,
+	[Phone] [varchar](15) NULL,
+	[Email] [varchar](200) NULL,
+	[LatLong] [varchar](200) NULL,
+	[Ranking] [varchar](50) NULL,
+	[Url_image] [varchar](max) NULL,
+	[Facebook] [varchar](max) NULL,
+	[Instagram] [varchar](max) NULL,
+	[Twitter] [varchar](max) NULL,
+	[Url_logo] [varchar](max) NULL,
+ CONSTRAINT [PK_Places] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
